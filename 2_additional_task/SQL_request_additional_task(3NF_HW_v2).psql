@@ -1,0 +1,13 @@
+create table department(
+id serial primary key,
+name_department varchar(40) not null unique
+);
+
+create table employee(
+id_employee serial unique,
+name varchar(40) not null,
+id_department integer references department(id),
+id_chief integer references employee(id_employee),
+constraint pk primary key (id_employee, name)
+);
+
